@@ -1,0 +1,11 @@
+[package]
+name = "liquidfun"
+version = "0.1.0"
+authors = ["Richard Janicek <r@janicek.co>"]
+build = "src/build.rs"
+
+[build-dependencies]
+gcc = "0.3"
+
+[dependencies]
+libc = "0.2"
