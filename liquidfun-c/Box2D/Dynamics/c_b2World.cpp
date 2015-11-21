@@ -11,6 +11,14 @@ extern "C" {
     void b2World_Delete(b2World* self) {
         delete self;
     }
+    
+    int32 b2World_GetBodyCount(const b2World* self) {
+        return self->GetBodyCount();
+    }
+
+    const b2Body* b2World_GetBodyList(const b2World* self) {
+        return self->GetBodyList();
+    }
 
     c_b2Vec2 b2World_GetGravity(const b2World* self) {
     	b2Vec2 tmp = self->GetGravity();

@@ -4,6 +4,7 @@ use super::fixture::*;
 use super::super::collision::shapes::shape::*;
 use super::super::common::math::*;
 use super::super::common::settings::*;
+use super::world::*;
 
 #[repr(C)]
 #[derive(Debug)]
@@ -65,9 +66,14 @@ extern {
     fn b2Body_CreateFixture_FromShape(this: *mut B2Body, shape: *const B2Shape, density: Float32) -> *mut B2Fixture;
     fn b2Body_CreateFixture(this: *mut B2Body, def: *mut FixtureDef) -> *mut B2Fixture;
     fn b2Body_GetAngle(this: *mut B2Body) -> Float32;
+    fn b2Body_GetNext(this: *mut B2Body) -> *mut B2Body;
     fn b2Body_GetPosition(this: *mut B2Body) -> &Vec2;
+    fn b2Body_GetUserData(this: *const B2Body) -> usize;
+    fn b2Body_GetWorld(this: *const B2Body) -> *mut B2World; 
 }
 
+#[allow(raw_pointer_derive)]
+#[derive(Clone)]
 pub struct Body {
 	pub ptr: *mut B2Body
 }
@@ -88,13 +94,39 @@ impl Body {
 
     pub fn get_angle(&self) -> Float32 {
         unsafe {
-            return b2Body_GetAngle(self.ptr);
+            b2Body_GetAngle(self.ptr)
         }
+    }
+
+    pub fn get_next(&self) -> Option<Body> {
+        let ptr: *mut B2Body;
+        
+        unsafe {
+            ptr = b2Body_GetNext(self.ptr);
+        }
+
+        if ptr.is_null() {
+            None
+        } else {
+            Some(Body { ptr: ptr })
+        }        
     }
 
     pub fn get_position(&self) -> &Vec2 {
         unsafe {
-            return b2Body_GetPosition(self.ptr);
+            b2Body_GetPosition(self.ptr)
+        }
+    }
+
+    pub fn get_user_data(&self) -> usize {
+        unsafe {
+            b2Body_GetUserData(self.ptr)
+        }
+    }
+
+    pub fn get_world(&self) -> World {
+        unsafe {
+            World { ptr: b2Body_GetWorld(self.ptr) }
         }
     }
 

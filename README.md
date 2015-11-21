@@ -3,7 +3,7 @@ LiquidFun Rust
 
 Rust bindings for [LiquidFun](https://github.com/google/liquidfun/).
 
-* Model LiquidFun C++ API as closely as possible.
+* Model LiquidFun C++ API as closely as possible in idiomatic Rust.
 * Documentation for C++ API should be usable for Rust API.
 * Document places where Rust API varries from C++ API.
 
@@ -49,6 +49,14 @@ Status
 ------
 
 The LiquidFun Hello World example compiles and runs. More bindings will be added as needed by projects that depend on LiquidFun Rust.
+
+User Data
+---------
+Some objects in LiquidFun allow you to attach your own data to them. These are bound as `usize`. You can store raw pointers to your data there.
+
+```
+	ground_body_def.user_data = &Vec2::new(6.0, 66.0) as *const Vec2 as usize;
+```
 
 Passing structs by value from C++ to Rust
 -----------------------------------------

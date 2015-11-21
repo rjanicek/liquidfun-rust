@@ -15,14 +15,10 @@ fn hello_world() {
 
 	// Construct a world object, which will hold and simulate the rigid bodies.
 	let mut world = World::new(&gravity);
-	assert_eq!(gravity, world.get_gravity());
 
 	// Define the ground body.
 	let mut ground_body_def = BodyDef::default();
 	ground_body_def.position.set(0.0, -10.0);
-	// ground_body_def.user_data = &Vec2::new(6.0, 66.0) as *const Vec2 as usize;
-	assert_eq!(ground_body_def.position.y, -10.0);
-	println!("{:#?}", ground_body_def);
 
 	// Call the body factory which allocates memory for the ground body
 	// from a pool and creates the ground box shape (also from a pool).

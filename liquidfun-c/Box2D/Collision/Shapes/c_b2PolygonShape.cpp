@@ -11,11 +11,11 @@ extern "C" {
     }
 
     void b2PolygonShape_SetAsBox(b2PolygonShape* self, float32 hx, float32 hy) {
-    	self->SetAsBox(hx, hy);
-	}
+        self->SetAsBox(hx, hy);
+    }
 
-	b2Shape* b2PolygonShape_Upcast(b2PolygonShape* s) {
-		return static_cast<b2Shape*>(reinterpret_cast<b2PolygonShape*>(s));
-	}
+    b2Shape* b2PolygonShape_Upcast(b2PolygonShape* s) {
+        return static_cast<b2Shape*>(reinterpret_cast<b2PolygonShape*>(s));
+    }
 
 } // extern C

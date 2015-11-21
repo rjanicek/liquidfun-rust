@@ -2,18 +2,20 @@ use super::body::*;
 use super::super::common::math::*;
 use super::super::common::settings::*;
 
-enum B2World {}
+pub enum B2World {}
 
 extern {
     fn b2World_CreateBody(world: *mut B2World, bd: *const BodyDef) -> *mut B2Body;
     fn b2World_Delete(world: *mut B2World);
+    fn b2World_GetBodyCount(world: *const B2World) -> Int32;
+    fn b2World_GetBodyList(world: *const B2World) -> *mut B2Body;
     fn b2World_GetGravity(world: *mut B2World) -> Vec2;
     fn b2World_New(gravity: *const Vec2) -> *mut B2World;
     fn b2World_Step(this: *mut B2World, timeStep: Float32, velocityIterations: Int32, positionIterations: Int32);
 }
 
 pub struct World {
-	ptr: *mut B2World
+	pub ptr: *mut B2World
 }
 
 impl World {
@@ -26,6 +28,24 @@ impl World {
     pub fn create_body(&mut self, def: &BodyDef) -> Body {
         unsafe {
             Body { ptr: b2World_CreateBody(self.ptr, def) }
+        }
+    }
+
+    pub fn get_body_count(&self) -> Int32 {
+        unsafe {
+            b2World_GetBodyCount(self.ptr)
+        }
+    }
+
+    pub fn get_body_list(&self) -> Option<Body> {
+        let ptr;
+        unsafe {
+            ptr = b2World_GetBodyList(self.ptr);
+        }
+
+        match ptr.is_null() {
+            true => None,
+            false => Some(Body { ptr: ptr })
         }
     }
 

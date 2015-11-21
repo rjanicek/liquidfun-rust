@@ -15,8 +15,20 @@ extern "C" {
 	    return self->GetAngle();
 	}	
 
+	b2Body* b2Body_GetNext(b2Body* self) {
+		return self->GetNext();
+	}
+
 	const b2Vec2& b2Body_GetPosition(const b2Body* self) {
 	    return self->GetPosition();
+	}
+
+	void* b2Body_GetUserData(const b2Body* self) {
+		return self->GetUserData();
+	}
+
+	b2World* b2Body_GetWorld(b2Body* self) {
+		return self->GetWorld();
 	}
 
 } // extern C
