@@ -15,6 +15,10 @@ extern "C" {
 	    return self->GetAngle();
 	}	
 
+	b2Fixture* b2Body_GetFixtureList(b2Body* self) {
+		return self->GetFixtureList();
+	}
+
 	b2Body* b2Body_GetNext(b2Body* self) {
 		return self->GetNext();
 	}

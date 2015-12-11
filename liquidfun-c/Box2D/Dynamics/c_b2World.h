@@ -1,5 +1,5 @@
-#ifndef C_BOX2D_WORLD
-#define C_BOX2D_WORLD
+#ifndef C_B2_WORLD
+#define C_B2_WORLD
 
 #ifdef __cplusplus
 extern "C" {
@@ -11,7 +11,8 @@ extern "C" {
 	const b2Body* b2World_GetBodyList(const b2World* self);
 	c_b2Vec2 b2World_GetGravity(const b2World* self);
 	b2Body* b2World_CreateBody(b2World* self, const b2BodyDef* bd);
-	void b2World_Step(box2d_World* self, float32 timeStep, int32 velocityIterations, int32 positionIterations);
+	b2ParticleSystem* b2World_CreateParticleSystem(b2World* self, const b2ParticleSystemDef* def);
+	void b2World_Step(b2World* self, float32 timeStep, int32 velocityIterations, int32 positionIterations);
 
 #ifdef __cplusplus
 } // extern C

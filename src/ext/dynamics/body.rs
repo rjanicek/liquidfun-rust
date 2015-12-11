@@ -1,5 +1,5 @@
-use super::super::box2d::dynamics::body::*;
-use super::super::box2d::dynamics::world::*;
+use super::super::super::box2d::dynamics::body::*;
+use super::super::super::box2d::dynamics::world::*;
 
 pub struct BodyIterator {
 	body: Option<Body>,

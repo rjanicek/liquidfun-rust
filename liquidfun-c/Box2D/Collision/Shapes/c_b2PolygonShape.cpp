@@ -10,12 +10,20 @@ extern "C" {
         delete self;
     }
 
+    const b2Vec2& b2PolygonShape_GetVertex(b2PolygonShape* self, int32 index) {
+        return self->GetVertex(index);
+    }
+
+    int32 b2PolygonShape_GetVertexCount(const b2PolygonShape* self) {
+        return self->GetVertexCount();
+    }
+
     void b2PolygonShape_SetAsBox(b2PolygonShape* self, float32 hx, float32 hy) {
         self->SetAsBox(hx, hy);
     }
 
-    b2Shape* b2PolygonShape_Upcast(b2PolygonShape* s) {
-        return static_cast<b2Shape*>(reinterpret_cast<b2PolygonShape*>(s));
+    b2Shape* b2PolygonShape_Upcast(b2PolygonShape* self) {
+        return static_cast<b2Shape*>(reinterpret_cast<b2PolygonShape*>(self));
     }
 
 } // extern C

@@ -29,6 +29,10 @@ extern "C" {
     	return self->CreateBody(bd);
     }
 
+    b2ParticleSystem* b2World_CreateParticleSystem(b2World* self, const b2ParticleSystemDef* def) {
+        return self->CreateParticleSystem(def);
+    }
+
     void b2World_Step(b2World* self, float32 timeStep, int32 velocityIterations, int32 positionIterations) {
         self->Step(timeStep, velocityIterations, positionIterations);
     }

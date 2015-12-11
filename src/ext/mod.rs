@@ -1,2 +1,2 @@
-pub mod body;
-pub mod world;
+pub mod collision;
+pub mod dynamics;

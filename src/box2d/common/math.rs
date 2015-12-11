@@ -1,7 +1,7 @@
 use super::settings::*;
 
 #[repr(C)]
-#[derive(Debug, PartialEq, Default)]
+#[derive(Debug, PartialEq, Default, Clone)]
 pub struct Vec2 {
     pub x: Float32,
     pub y: Float32,
@@ -16,4 +16,9 @@ impl Vec2 {
 		self.x = x;
 		self.y = y;
 	}
+
+	pub fn zero() -> Vec2 {
+		Vec2::default()
+	}
 }
+

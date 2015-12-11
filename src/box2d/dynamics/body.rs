@@ -8,8 +8,7 @@ use super::world::*;
 
 #[repr(C)]
 #[derive(Debug)]
-pub enum BodyType
-{
+pub enum BodyType {
 	b2_staticBody = 0,
 	b2_kinematicBody,
 	b2_dynamicBody
@@ -57,7 +56,7 @@ impl Default for BodyDef {
 	        active: true,
 	        gravity_scale: 1.0,
 	    }
-  }
+    }
 }
 
 pub enum B2Body {}
@@ -66,6 +65,7 @@ extern {
     fn b2Body_CreateFixture_FromShape(this: *mut B2Body, shape: *const B2Shape, density: Float32) -> *mut B2Fixture;
     fn b2Body_CreateFixture(this: *mut B2Body, def: *mut FixtureDef) -> *mut B2Fixture;
     fn b2Body_GetAngle(this: *mut B2Body) -> Float32;
+    fn b2Body_GetFixtureList(this: *mut B2Body) -> *mut B2Fixture;
     fn b2Body_GetNext(this: *mut B2Body) -> *mut B2Body;
     fn b2Body_GetPosition(this: *mut B2Body) -> &Vec2;
     fn b2Body_GetUserData(this: *const B2Body) -> usize;
@@ -97,6 +97,18 @@ impl Body {
             b2Body_GetAngle(self.ptr)
         }
     }
+
+    pub fn get_fixture_list(&self) -> Option<Fixture> {
+        let ptr;
+        unsafe {
+            ptr = b2Body_GetFixtureList(self.ptr);
+        }
+
+        match ptr.is_null() {
+            true => None,
+            false => Some(Fixture { ptr: ptr })
+        }
+    }    
 
     pub fn get_next(&self) -> Option<Body> {
         let ptr: *mut B2Body;

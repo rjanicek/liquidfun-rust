@@ -1,5 +1,5 @@
-use super::super::box2d::common::math::*;
-use super::super::box2d::dynamics::world::*;
+use super::super::super::box2d::common::math::*;
+use super::super::super::box2d::dynamics::world::*;
 
 impl Default for World {
 	fn default() -> World {
