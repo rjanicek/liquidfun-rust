@@ -25,6 +25,10 @@ extern "C" {
         return *cast(&tmp);
     }
 
+    b2ParticleSystem* b2World_GetParticleSystemList(b2World* self) {
+        return self->GetParticleSystemList();
+    }
+
     b2Body* b2World_CreateBody(b2World* self, const b2BodyDef* bd) {
     	return self->CreateBody(bd);
     }

@@ -60,3 +60,4 @@
 #include "Box2D/Dynamics/c_b2Fixture.cpp"
 #include "Box2D/Dynamics/c_b2World.cpp"
 #include "Box2D/Particle/c_b2Particle.cpp"
+#include "Box2D/Particle/c_b2ParticleSystem.cpp"

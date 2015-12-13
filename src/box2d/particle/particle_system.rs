@@ -1,4 +1,5 @@
 use super::super::common::settings::*;
+use super::*;
 
 #[repr(C)]
 #[derive(Debug)]
@@ -56,8 +57,50 @@ impl Default for ParticleSystemDef {
 
 pub enum B2ParticleSystem {}
 
+extern {
+    fn b2ParticleSystem_CreateParticle(ps: *mut B2ParticleSystem, pd: &B2ParticleDef) -> Int32;
+    fn b2ParticleSystem_DestroyParticle(ps: *mut B2ParticleSystem, index: Int32);
+    fn b2ParticleSystem_GetParticleCount(ps: *mut B2ParticleSystem) -> Int32;
+    fn b2ParticleSystem_GetNext(ps: *mut B2ParticleSystem) -> *mut B2ParticleSystem;
+}
+
 #[allow(raw_pointer_derive)]
 #[derive(Clone)]
 pub struct ParticleSystem {
     pub ptr: *mut B2ParticleSystem
+}
+
+impl ParticleSystem {
+    pub fn create_particle(&self, pd: &ParticleDef) -> Int32 {
+        unsafe {
+            b2ParticleSystem_CreateParticle(self.ptr, &B2ParticleDef::from(pd))
+        }
+    }
+
+    pub fn destroy_particle(&self, index: Int32) {
+        unsafe {
+            b2ParticleSystem_DestroyParticle(self.ptr, index);
+        }
+    }
+
+    pub fn get_particle_count(&self) -> Int32 {
+        unsafe {
+            b2ParticleSystem_GetParticleCount(self.ptr)
+        }
+    }
+
+    pub fn get_next(&self) -> Option<ParticleSystem> {
+        let ptr: *mut B2ParticleSystem;
+        
+        unsafe {
+            ptr = b2ParticleSystem_GetNext(self.ptr);
+        }
+
+        if ptr.is_null() {
+            None
+        } else {
+            Some(ParticleSystem { ptr: ptr })
+        }
+    }
+
 }

@@ -90,6 +90,11 @@ c_b2Vec2 sendStructFromCppToRustByValue() {
 }
 ```
 
+References
+----------
+[LiquidFun Programmer's Guide](https://google.github.io/liquidfun/Programmers-Guide.html)
+[LiquidFun API Documentation](https://google.github.io/liquidfun/API-Ref.html)
+
 Thank You
 ---------
 Erin Catto for [Box2D](https://github.com/erincatto/Box2D)

@@ -12,6 +12,7 @@ extern {
     fn b2World_GetBodyCount(world: *const B2World) -> Int32;
     fn b2World_GetBodyList(world: *const B2World) -> *mut B2Body;
     fn b2World_GetGravity(world: *mut B2World) -> Vec2;
+    fn b2World_GetParticleSystemList(world: *const B2World) -> *mut B2ParticleSystem;
     fn b2World_New(gravity: *const Vec2) -> *mut B2World;
     fn b2World_Step(this: *mut B2World, timeStep: Float32, velocityIterations: Int32, positionIterations: Int32);
 }
@@ -54,9 +55,10 @@ impl World {
             ptr = b2World_GetBodyList(self.ptr);
         }
 
-        match ptr.is_null() {
-            true => None,
-            false => Some(Body { ptr: ptr })
+        if ptr.is_null() {
+            None
+        } else {
+            Some(Body { ptr: ptr })
         }
     }
 
@@ -64,6 +66,19 @@ impl World {
     	unsafe {
     		b2World_GetGravity(self.ptr)
     	}
+    }
+
+    pub fn get_particle_system_list(&self) -> Option<ParticleSystem> {
+        let ptr;
+        unsafe {
+            ptr = b2World_GetParticleSystemList(self.ptr);
+        }
+
+        if ptr.is_null() {
+            None
+        } else {
+            Some(ParticleSystem { ptr: ptr })
+        }
     }
 
     pub fn step(&mut self, time_step: Float32, velocity_iterations: Int32, position_iterations: Int32) {

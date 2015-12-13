@@ -3,6 +3,7 @@ extern crate liquidfun;
 use liquidfun::box2d::common::math::*;
 use liquidfun::box2d::dynamics::body::*;
 use liquidfun::box2d::dynamics::world::*;
+use liquidfun::box2d::particle::particle_system::*;
 
 #[test]
 fn get_gravity() {
@@ -68,4 +69,25 @@ fn get_body_iterator() {
 	}
 	assert_eq!(body_count, 3);
 	
+}
+
+#[test]
+fn get_particle_system_list() {
+
+	let mut world = World::default();
+	let particle_system_def = ParticleSystemDef::default();
+	world.create_particle_system(&particle_system_def);
+
+	let mut ps = world.get_particle_system_list();
+
+	assert_eq!(ps.is_some(), true);
+
+	let mut count = 0;
+	
+	while let Some(x) = ps {
+    	count += 1;
+    	ps = x.get_next();
+	}
+
+	assert_eq!(count, 1);
 }

@@ -5,3 +5,9 @@ pub enum B2ParticleGroup {}
 pub struct ParticleGroup {
     pub ptr: *mut B2ParticleGroup
 }
+
+impl ParticleGroup {
+	pub fn ptr(&self) -> *mut B2ParticleGroup {
+		self.ptr
+	}
+}
