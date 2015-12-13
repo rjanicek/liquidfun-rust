@@ -1,6 +1,6 @@
 [package]
 name = "liquidfun"
-version = "0.4.0"
+version = "0.5.0"
 authors = ["Richard Janicek <r@janicek.co>"]
 description = "Rust bindings for LiquidFun https://github.com/google/liquidfun"
 license = "MIT"

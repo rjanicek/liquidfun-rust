@@ -19,5 +19,9 @@ extern "C" {
 		return self->GetNext();
 	}
 
+	b2Vec2* b2ParticleSystem_GetPositionBuffer(b2ParticleSystem* self) {
+		return self->GetPositionBuffer();
+	}
+
 } // extern C
 

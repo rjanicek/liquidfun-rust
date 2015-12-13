@@ -1,7 +1,7 @@
 use super::settings::*;
 
 #[repr(C)]
-#[derive(Debug, PartialEq, Default, Clone)]
+#[derive(Debug, PartialEq, Default, Copy, Clone)]
 pub struct Vec2 {
     pub x: Float32,
     pub y: Float32,

@@ -1,5 +1,7 @@
-use super::super::common::settings::*;
 use super::*;
+use super::super::common::math::*;
+use super::super::common::settings::*;
+use std::slice;
 
 #[repr(C)]
 #[derive(Debug)]
@@ -62,6 +64,7 @@ extern {
     fn b2ParticleSystem_DestroyParticle(ps: *mut B2ParticleSystem, index: Int32);
     fn b2ParticleSystem_GetParticleCount(ps: *mut B2ParticleSystem) -> Int32;
     fn b2ParticleSystem_GetNext(ps: *mut B2ParticleSystem) -> *mut B2ParticleSystem;
+    fn b2ParticleSystem_GetPositionBuffer(ps: *mut B2ParticleSystem) -> *mut Vec2;
 }
 
 #[allow(raw_pointer_derive)]
@@ -100,6 +103,12 @@ impl ParticleSystem {
             None
         } else {
             Some(ParticleSystem { ptr: ptr })
+        }
+    }
+
+    pub fn get_position_buffer(&self) -> &[Vec2] {
+        unsafe {
+            slice::from_raw_parts(b2ParticleSystem_GetPositionBuffer(self.ptr), self.get_particle_count() as usize)
         }
     }
 

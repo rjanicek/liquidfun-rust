@@ -9,6 +9,7 @@ extern "C" {
 	void b2ParticleSystem_DestroyParticle(b2ParticleSystem* self, int32 index);
 	b2ParticleSystem* b2ParticleSystem_GetNext(b2ParticleSystem* self);
 	int32 b2ParticleSystem_GetParticleCount(b2ParticleSystem* self);
+	b2Vec2* b2ParticleSystem_GetPositionBuffer(b2ParticleSystem* self);
 
 #ifdef __cplusplus
 } // extern C
