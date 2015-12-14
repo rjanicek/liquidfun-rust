@@ -1,5 +1,6 @@
 use super::settings::*;
 
+/// A 2D column vector.
 #[repr(C)]
 #[derive(Debug, PartialEq, Default, Copy, Clone)]
 pub struct Vec2 {
@@ -8,15 +9,19 @@ pub struct Vec2 {
 }
 
 impl Vec2 {
-	pub fn new(x: Float32, y: Float32) -> Vec2 {
+
+	/// Construct using coordinates.
+	pub fn new(x: f32, y: f32) -> Vec2 {
 		Vec2 {x: x, y: y}
 	}
 
-	pub fn set(&mut self, x: Float32, y: Float32) {
+	/// Set this vector to some specified coordinates.
+	pub fn set(&mut self, x: f32, y: f32) {
 		self.x = x;
 		self.y = y;
 	}
 
+	/// Construct a vector with all zero coordinates.
 	pub fn zero() -> Vec2 {
 		Vec2::default()
 	}

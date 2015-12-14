@@ -19,6 +19,10 @@ extern "C" {
 		return self->GetNext();
 	}
 
+	uint32 b2ParticleSystem_GetParticleFlags(b2ParticleSystem* self, const int32 index) {
+		return self->GetParticleFlags(index);
+	}
+
 	b2Vec2* b2ParticleSystem_GetPositionBuffer(b2ParticleSystem* self) {
 		return self->GetPositionBuffer();
 	}

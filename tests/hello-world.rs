@@ -26,7 +26,7 @@ fn hello_world() {
 	let ground_body = world.create_body(&ground_body_def);
 
 	// Define the ground box shape.
-	let mut ground_box = PolygonShape::default();
+	let mut ground_box = PolygonShape::new();
 
 	// The extents are the half-widths of the box.
 	ground_box.set_as_box(50.0, 10.0);
@@ -36,12 +36,12 @@ fn hello_world() {
 
 	// Define the dynamic body. We set its position and call the body factory.
 	let mut body_def = BodyDef::default();
-	body_def.body_type = BodyType::b2_dynamicBody;
+	body_def.body_type = BodyType::DynamicBody;
 	body_def.position.set(0.0, 4.0);
 	let body = world.create_body(&body_def);
 
 	// Define another box shape for our dynamic body.
-	let mut dynamic_box = PolygonShape::default();
+	let mut dynamic_box = PolygonShape::new();
 	dynamic_box.set_as_box(1.0, 1.0);
 
 	// Define the dynamic body fixture.
