@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `particle` mod in crate `liquidfun`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, particle">
+
+    <title>liquidfun::box2d::particle - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../../main.css">
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../../index.html'>liquidfun</a>::<wbr><a href='../index.html'>box2d</a></p><script>window.sidebarCurrent = {name: 'particle', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content mod">
+<h1 class='fqn'><span class='in-band'>Module <a href='../../index.html'>liquidfun</a>::<wbr><a href='../index.html'>box2d</a>::<wbr><a class='mod' href=''>particle</a></span><span class='out-of-band'><span id='render-detail'>
+            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                [<span class='inner'>&#x2212;</span>]
+            </a>
+        </span><a id='src-340' class='srclink' href='../../../src/liquidfun/box2d/particle/mod.rs.html#1-136' title='goto source code'>[src]</a></span></h1>
+<h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
+<table>
+                    <tr class=' module-item'>
+                        <td><a class='mod' href='particle_color/index.html'
+                               title='liquidfun::box2d::particle::particle_color'>particle_color</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='mod' href='particle_group/index.html'
+                               title='liquidfun::box2d::particle::particle_group'>particle_group</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='mod' href='particle_system/index.html'
+                               title='liquidfun::box2d::particle::particle_system'>particle_system</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                </table><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
+<table>
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.B2ParticleDef.html'
+                               title='liquidfun::box2d::particle::B2ParticleDef'>B2ParticleDef</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ParticleDef.html'
+                               title='liquidfun::box2d::particle::ParticleDef'>ParticleDef</a></td>
+                        <td class='docblock short'>
+                             <p>A particle definition holds all the data needed to construct a particle.
+You can safely re-use these definitions.</p>
+
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.ParticleFlags.html'
+                               title='liquidfun::box2d::particle::ParticleFlags'>ParticleFlags</a></td>
+                        <td class='docblock short'>
+                             <p>The particle type. Can be combined with the | operator.</p>
+
+                        </td>
+                    </tr>
+                </table><h2 id='constants' class='section-header'><a href="#constants">Constants</a></h2>
+<table>
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.BARRIER_PARTICLE.html'
+                               title='liquidfun::box2d::particle::BARRIER_PARTICLE'>BARRIER_PARTICLE</a></td>
+                        <td class='docblock short'>
+                             <p>Prevents other particles from leaking.</p>
+
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.COLOR_MIXING_PARTICLE.html'
+                               title='liquidfun::box2d::particle::COLOR_MIXING_PARTICLE'>COLOR_MIXING_PARTICLE</a></td>
+                        <td class='docblock short'>
+                             <p>Mix color between contacting particles.</p>
+
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.DESTRUCTION_LISTENER_PARTICLE.html'
+                               title='liquidfun::box2d::particle::DESTRUCTION_LISTENER_PARTICLE'>DESTRUCTION_LISTENER_PARTICLE</a></td>
+                        <td class='docblock short'>
+                             <p>Call b2DestructionListener on destruction.</p>
+
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.ELASTIC_PARTICLE.html'
+                               title='liquidfun::box2d::particle::ELASTIC_PARTICLE'>ELASTIC_PARTICLE</a></td>
+                        <td class='docblock short'>
+                             <p>With restitution from deformation.</p>
+
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.FIXTURE_CONTACT_FILTER_PARTICLE.html'
+                               title='liquidfun::box2d::particle::FIXTURE_CONTACT_FILTER_PARTICLE'>FIXTURE_CONTACT_FILTER_PARTICLE</a></td>
+                        <td class='docblock short'>
+                             <p>Call b2ContactFilter when this particle interacts with rigid bodies.</p>
+
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.FIXTURE_CONTACT_LISTENER_PARTICLE.html'
+                               title='liquidfun::box2d::particle::FIXTURE_CONTACT_LISTENER_PARTICLE'>FIXTURE_CONTACT_LISTENER_PARTICLE</a></td>
+                        <td class='docblock short'>
+                             <p>Call b2ContactListener when this particle is about to interact with
+a rigid body or stops interacting with a rigid body.
+This results in an expensive operation compared to using
+b2_fixtureContactFilterParticle to detect collisions between
+particles.</p>
+
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.PARTICLE_CONTACT_FILTER_PARTICLE.html'
+                               title='liquidfun::box2d::particle::PARTICLE_CONTACT_FILTER_PARTICLE'>PARTICLE_CONTACT_FILTER_PARTICLE</a></td>
+                        <td class='docblock short'>
+                             <p>Call b2ContactFilter when this particle interacts with other
+particles.</p>
+
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.PARTICLE_CONTACT_LISTENER_PARTICLE.html'
+                               title='liquidfun::box2d::particle::PARTICLE_CONTACT_LISTENER_PARTICLE'>PARTICLE_CONTACT_LISTENER_PARTICLE</a></td>
+                        <td class='docblock short'>
+                             <p>Call b2ContactListener when this particle is about to interact with
+another particle or stops interacting with another particle.
+This results in an expensive operation compared to using
+b2_particleContactFilterParticle to detect collisions between
+particles.</p>
+
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.POWDER_PARTICLE.html'
+                               title='liquidfun::box2d::particle::POWDER_PARTICLE'>POWDER_PARTICLE</a></td>
+                        <td class='docblock short'>
+                             <p>Without isotropic pressure.</p>
+
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.REACTIVE_PARTICLE.html'
+                               title='liquidfun::box2d::particle::REACTIVE_PARTICLE'>REACTIVE_PARTICLE</a></td>
+                        <td class='docblock short'>
+                             <p>Makes pairs or triads with other particles.</p>
+
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.REPULSIVE_PARTICLE.html'
+                               title='liquidfun::box2d::particle::REPULSIVE_PARTICLE'>REPULSIVE_PARTICLE</a></td>
+                        <td class='docblock short'>
+                             <p>With high repulsive force.</p>
+
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.SPRING_PARTICLE.html'
+                               title='liquidfun::box2d::particle::SPRING_PARTICLE'>SPRING_PARTICLE</a></td>
+                        <td class='docblock short'>
+                             <p>With restitution from stretching.</p>
+
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.STATIC_PRESSURE_PARTICLE.html'
+                               title='liquidfun::box2d::particle::STATIC_PRESSURE_PARTICLE'>STATIC_PRESSURE_PARTICLE</a></td>
+                        <td class='docblock short'>
+                             <p>Less compressibility.</p>
+
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.TENSILE_PARTICLE.html'
+                               title='liquidfun::box2d::particle::TENSILE_PARTICLE'>TENSILE_PARTICLE</a></td>
+                        <td class='docblock short'>
+                             <p>With surface tension.</p>
+
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.VISCOUS_PARTICLE.html'
+                               title='liquidfun::box2d::particle::VISCOUS_PARTICLE'>VISCOUS_PARTICLE</a></td>
+                        <td class='docblock short'>
+                             <p>With viscosity.</p>
+
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.WALL_PARTICLE.html'
+                               title='liquidfun::box2d::particle::WALL_PARTICLE'>WALL_PARTICLE</a></td>
+                        <td class='docblock short'>
+                             <p>Zero velocity.</p>
+
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.WATER_PARTICLE.html'
+                               title='liquidfun::box2d::particle::WATER_PARTICLE'>WATER_PARTICLE</a></td>
+                        <td class='docblock short'>
+                             <p>Water particle.</p>
+
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='constant' href='constant.ZOMBIE_PARTICLE.html'
+                               title='liquidfun::box2d::particle::ZOMBIE_PARTICLE'>ZOMBIE_PARTICLE</a></td>
+                        <td class='docblock short'>
+                             <p>Removed after next simulation step.</p>
+
+                        </td>
+                    </tr>
+                </table></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../../";
+        window.currentCrate = "liquidfun";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../../jquery.js"></script>
+    <script src="../../../main.js"></script>
+    
+    <script async src="../../../search-index.js"></script>
+</body>
+</html>

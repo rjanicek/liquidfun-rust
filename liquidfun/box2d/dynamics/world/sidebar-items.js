@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["B2World",""]],"struct":[["World","The world class manages all physics entities, dynamic simulation, and asynchronous queries. The world also contains efficient memory management facilities."]]});

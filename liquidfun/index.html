@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `liquidfun` crate.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, liquidfun">
+
+    <title>liquidfun - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../main.css">
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'></p><script>window.sidebarCurrent = {name: 'liquidfun', ty: 'mod', relpath: '../'};</script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content mod">
+<h1 class='fqn'><span class='in-band'>Crate <a class='mod' href=''>liquidfun</a></span><span class='out-of-band'><span id='render-detail'>
+            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                [<span class='inner'>&#x2212;</span>]
+            </a>
+        </span><a id='src-0' class='srclink' href='../src/liquidfun/lib.rs.html#1-66' title='goto source code'>[src]</a></span></h1>
+<div class='docblock'><p>Rust bindings for <a href="https://github.com/google/liquidfun/">LiquidFun</a>.</p>
+
+<h2 id='references' class='section-header'><a href='#references'>References</a></h2>
+<p><a href="https://google.github.io/liquidfun/Programmers-Guide.html">LiquidFun Programmer&#39;s Guide</a></p>
+
+<p><a href="https://google.github.io/liquidfun/API-Ref.html">LiquidFun C++ API Documentation</a></p>
+
+<h2 id='notes' class='section-header'><a href='#notes'>Notes</a></h2>
+<p>Anything with a <code>B2</code> prefix indicates ffi compatibility with the C++ API.</p>
+
+<h2 id='user-data' class='section-header'><a href='#user-data'>User Data</a></h2>
+<p>Some objects in LiquidFun allow you to attach your own data to them. These are bound as <code>usize</code>. You can store raw pointers to your data there.</p>
+
+<p>usage:
+ move raw pointer in: <code>&amp;user_data as *const T as size_t;</code></p>
+
+<p>dereference raw pointer out: <code>*(user_data as *const T)</code></p>
+
+<p>example:<br>
+<code>ground_body_def.user_data = &amp;Vec2::new(6.0, 66.0) as *const Vec2 as usize;</code></p>
+
+<h2 id='passing-structs-by-value-from-c-to-rust' class='section-header'><a href='#passing-structs-by-value-from-c-to-rust'>Passing structs by value from C++ to Rust</a></h2>
+<ul>
+<li>make a new typedef struct with same name as C++ struct but with <code>c_</code> prefix</li>
+<li>add just the data parts from the C++ struct, make sure both struct members have the same order</li>
+</ul>
+
+<pre><code class="language-cpp">// C++
+struct b2Vec2 {
+    b2Vec2() {}
+    ...
+    float32 x, y;
+};
+ 
+// new C struct
+typedef struct c_b2Vec2 { float32 x, y; } c_b2Vec2;
+</code></pre>
+
+<ul>
+<li>make a casting function</li>
+<li>cast C++ struct to new C struct and pass back to rust</li>
+</ul>
+
+<pre><code class="language-cpp">c_b2Vec2* cast(b2Vec2* v) {
+    return reinterpret_cast&lt;c_b2Vec2*&gt;(v);
+}
+ 
+c_b2Vec2 sendStructFromCppToRustByValue() {
+    b2Vec2 tmp;
+    return *cast(&amp;tmp);
+}
+</code></pre>
+</div><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
+<table>
+                    <tr class=' module-item'>
+                        <td><a class='mod' href='box2d/index.html'
+                               title='liquidfun::box2d'>box2d</a></td>
+                        <td class='docblock short'>
+                             <p>Canonical Liquid Fun bindings.</p>
+
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='mod' href='ext/index.html'
+                               title='liquidfun::ext'>ext</a></td>
+                        <td class='docblock short'>
+                             <p>Extra idomatic Rust features.</p>
+
+                        </td>
+                    </tr>
+                </table></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../";
+        window.currentCrate = "liquidfun";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../jquery.js"></script>
+    <script src="../main.js"></script>
+    
+    <script async src="../search-index.js"></script>
+</body>
+</html>

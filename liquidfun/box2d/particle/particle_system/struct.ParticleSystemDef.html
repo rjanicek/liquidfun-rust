@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `ParticleSystemDef` struct in crate `liquidfun`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, ParticleSystemDef">
+
+    <title>liquidfun::box2d::particle::particle_system::ParticleSystemDef - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../../../main.css">
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../../../index.html'>liquidfun</a>::<wbr><a href='../../index.html'>box2d</a>::<wbr><a href='../index.html'>particle</a>::<wbr><a href='index.html'>particle_system</a></p><script>window.sidebarCurrent = {name: 'ParticleSystemDef', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../../../index.html'>liquidfun</a>::<wbr><a href='../../index.html'>box2d</a>::<wbr><a href='../index.html'>particle</a>::<wbr><a href='index.html'>particle_system</a>::<wbr><a class='struct' href=''>ParticleSystemDef</a></span><span class='out-of-band'><span id='render-detail'>
+            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                [<span class='inner'>&#x2212;</span>]
+            </a>
+        </span><a id='src-406' class='srclink' href='../../../../src/liquidfun/box2d/particle/particle_system.rs.html#8-104' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct ParticleSystemDef {
+    pub strict_contact_check: <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>,
+    pub density: <a class='type' href='../../../../liquidfun/box2d/common/settings/type.Float32.html' title='liquidfun::box2d::common::settings::Float32'>Float32</a>,
+    pub gravity_scale: <a class='type' href='../../../../liquidfun/box2d/common/settings/type.Float32.html' title='liquidfun::box2d::common::settings::Float32'>Float32</a>,
+    pub radius: <a class='type' href='../../../../liquidfun/box2d/common/settings/type.Float32.html' title='liquidfun::box2d::common::settings::Float32'>Float32</a>,
+    pub max_count: <a class='type' href='../../../../liquidfun/box2d/common/settings/type.Int32.html' title='liquidfun::box2d::common::settings::Int32'>Int32</a>,
+    pub pressure_strength: <a class='type' href='../../../../liquidfun/box2d/common/settings/type.Float32.html' title='liquidfun::box2d::common::settings::Float32'>Float32</a>,
+    pub damping_strength: <a class='type' href='../../../../liquidfun/box2d/common/settings/type.Float32.html' title='liquidfun::box2d::common::settings::Float32'>Float32</a>,
+    pub elastic_strength: <a class='type' href='../../../../liquidfun/box2d/common/settings/type.Float32.html' title='liquidfun::box2d::common::settings::Float32'>Float32</a>,
+    pub spring_strength: <a class='type' href='../../../../liquidfun/box2d/common/settings/type.Float32.html' title='liquidfun::box2d::common::settings::Float32'>Float32</a>,
+    pub viscous_strength: <a class='type' href='../../../../liquidfun/box2d/common/settings/type.Float32.html' title='liquidfun::box2d::common::settings::Float32'>Float32</a>,
+    pub surface_tension_pressure_strength: <a class='type' href='../../../../liquidfun/box2d/common/settings/type.Float32.html' title='liquidfun::box2d::common::settings::Float32'>Float32</a>,
+    pub surface_tension_normal_strength: <a class='type' href='../../../../liquidfun/box2d/common/settings/type.Float32.html' title='liquidfun::box2d::common::settings::Float32'>Float32</a>,
+    pub repulsive_strength: <a class='type' href='../../../../liquidfun/box2d/common/settings/type.Float32.html' title='liquidfun::box2d::common::settings::Float32'>Float32</a>,
+    pub powder_strength: <a class='type' href='../../../../liquidfun/box2d/common/settings/type.Float32.html' title='liquidfun::box2d::common::settings::Float32'>Float32</a>,
+    pub ejection_strength: <a class='type' href='../../../../liquidfun/box2d/common/settings/type.Float32.html' title='liquidfun::box2d::common::settings::Float32'>Float32</a>,
+    pub static_pressure_strength: <a class='type' href='../../../../liquidfun/box2d/common/settings/type.Float32.html' title='liquidfun::box2d::common::settings::Float32'>Float32</a>,
+    pub static_pressure_relaxation: <a class='type' href='../../../../liquidfun/box2d/common/settings/type.Float32.html' title='liquidfun::box2d::common::settings::Float32'>Float32</a>,
+    pub static_pressure_iterations: <a class='type' href='../../../../liquidfun/box2d/common/settings/type.Int32.html' title='liquidfun::box2d::common::settings::Int32'>Int32</a>,
+    pub color_mixing_strength: <a class='type' href='../../../../liquidfun/box2d/common/settings/type.Float32.html' title='liquidfun::box2d::common::settings::Float32'>Float32</a>,
+    pub destroy_by_age: <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>,
+    pub lifetime_granularity: <a class='type' href='../../../../liquidfun/box2d/common/settings/type.Float32.html' title='liquidfun::box2d::common::settings::Float32'>Float32</a>,
+}</pre><h2 class='fields'>Fields</h2>
+<table><tr class='stab '>
+                                  <td id='structfield.strict_contact_check'><code>strict_contact_check</code></td><td><div class='docblock'><p>Enable strict Particle/Body contact check.
+See SetStrictContactCheck for details.</p>
+</div></td></tr><tr class='stab '>
+                                  <td id='structfield.density'><code>density</code></td><td><div class='docblock'><p>Set the particle density.
+See SetDensity for details.</p>
+</div></td></tr><tr class='stab '>
+                                  <td id='structfield.gravity_scale'><code>gravity_scale</code></td><td><div class='docblock'><p>Change the particle gravity scale. Adjusts the effect of the global
+gravity vector on particles. Default value is 1.0f.</p>
+</div></td></tr><tr class='stab '>
+                                  <td id='structfield.radius'><code>radius</code></td><td><div class='docblock'><p>Particles behave as circles with this radius. In Box2D units.</p>
+</div></td></tr><tr class='stab '>
+                                  <td id='structfield.max_count'><code>max_count</code></td><td><div class='docblock'><p>Set the maximum number of particles.
+By default, there is no maximum. The particle buffers can continue to
+grow while b2World&#39;s block allocator still has memory.
+See SetMaxParticleCount for details.</p>
+</div></td></tr><tr class='stab '>
+                                  <td id='structfield.pressure_strength'><code>pressure_strength</code></td><td><div class='docblock'><p>Increases pressure in response to compression
+Smaller values allow more compression</p>
+</div></td></tr><tr class='stab '>
+                                  <td id='structfield.damping_strength'><code>damping_strength</code></td><td><div class='docblock'><p>Reduces velocity along the collision normal
+Smaller value reduces less</p>
+</div></td></tr><tr class='stab '>
+                                  <td id='structfield.elastic_strength'><code>elastic_strength</code></td><td><div class='docblock'><p>Restores shape of elastic particle groups
+Larger values increase elastic particle velocity</p>
+</div></td></tr><tr class='stab '>
+                                  <td id='structfield.spring_strength'><code>spring_strength</code></td><td><div class='docblock'><p>Restores length of spring particle groups
+Larger values increase spring particle velocity</p>
+</div></td></tr><tr class='stab '>
+                                  <td id='structfield.viscous_strength'><code>viscous_strength</code></td><td><div class='docblock'><p>Reduces relative velocity of viscous particles
+Larger values slow down viscous particles more</p>
+</div></td></tr><tr class='stab '>
+                                  <td id='structfield.surface_tension_pressure_strength'><code>surface_tension_pressure_strength</code></td><td><div class='docblock'><p>Produces pressure on tensile particles
+0~0.2. Larger values increase the amount of surface tension.</p>
+</div></td></tr><tr class='stab '>
+                                  <td id='structfield.surface_tension_normal_strength'><code>surface_tension_normal_strength</code></td><td><div class='docblock'><p>Smoothes outline of tensile particles
+0~0.2. Larger values result in rounder, smoother, water-drop-like
+clusters of particles.</p>
+</div></td></tr><tr class='stab '>
+                                  <td id='structfield.repulsive_strength'><code>repulsive_strength</code></td><td><div class='docblock'><p>Produces additional pressure on repulsive particles
+Larger values repulse more
+Negative values mean attraction. The range where particles behave
+stably is about -0.2 to 2.0.</p>
+</div></td></tr><tr class='stab '>
+                                  <td id='structfield.powder_strength'><code>powder_strength</code></td><td><div class='docblock'><p>Produces repulsion between powder particles
+Larger values repulse more</p>
+</div></td></tr><tr class='stab '>
+                                  <td id='structfield.ejection_strength'><code>ejection_strength</code></td><td><div class='docblock'><p>Pushes particles out of solid particle group
+Larger values repulse more</p>
+</div></td></tr><tr class='stab '>
+                                  <td id='structfield.static_pressure_strength'><code>static_pressure_strength</code></td><td><div class='docblock'><p>Produces static pressure
+Larger values increase the pressure on neighboring partilces
+For a description of static pressure, see
+<a href="http://en.wikipedia.org/wiki/Static_pressure#Static_pressure_in_fluid_dynamics">http://en.wikipedia.org/wiki/Static_pressure#Static_pressure_in_fluid_dynamics</a></p>
+</div></td></tr><tr class='stab '>
+                                  <td id='structfield.static_pressure_relaxation'><code>static_pressure_relaxation</code></td><td><div class='docblock'><p>Reduces instability in static pressure calculation
+Larger values make stabilize static pressure with fewer iterations</p>
+</div></td></tr><tr class='stab '>
+                                  <td id='structfield.static_pressure_iterations'><code>static_pressure_iterations</code></td><td><div class='docblock'><p>Computes static pressure more precisely
+See SetStaticPressureIterations for details</p>
+</div></td></tr><tr class='stab '>
+                                  <td id='structfield.color_mixing_strength'><code>color_mixing_strength</code></td><td><div class='docblock'><p>Determines how fast colors are mixed
+1.0f ==&gt; mixed immediately
+0.5f ==&gt; mixed half way each simulation step (see b2World::Step())</p>
+</div></td></tr><tr class='stab '>
+                                  <td id='structfield.destroy_by_age'><code>destroy_by_age</code></td><td><div class='docblock'><p>Whether to destroy particles by age when no more particles can be
+created.  See #b2ParticleSystem::SetDestructionByAge() for
+more information.</p>
+</div></td></tr><tr class='stab '>
+                                  <td id='structfield.lifetime_granularity'><code>lifetime_granularity</code></td><td><div class='docblock'><p>Granularity of particle lifetimes in seconds.  By default this is
+set to (1.0f / 60.0f) seconds.  b2ParticleSystem uses a 32-bit signed
+value to track particle lifetimes so the maximum lifetime of a
+particle is (2<sup>32</sup> - 1) / (1.0f / lifetimeGranularity) seconds.
+With the value set to 1/60 the maximum lifetime or age of a particle is
+2.27 years.</p>
+</div></td></tr></table><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/default/trait.Default.html' title='core::default::Default'>Default</a> for <a class='struct' href='../../../../liquidfun/box2d/particle/particle_system/struct.ParticleSystemDef.html' title='liquidfun::box2d::particle::particle_system::ParticleSystemDef'>ParticleSystemDef</a></code></h3><div class='impl-items'><h4 id='method.default' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/default/trait.Default.html#method.default' class='fnname'>default</a>() -&gt; <a class='struct' href='../../../../liquidfun/box2d/particle/particle_system/struct.ParticleSystemDef.html' title='liquidfun::box2d::particle::particle_system::ParticleSystemDef'>ParticleSystemDef</a></code></h4>
+</div><h3 id='derived_implementations'>Derived Implementations </h3><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='struct' href='../../../../liquidfun/box2d/particle/particle_system/struct.ParticleSystemDef.html' title='liquidfun::box2d::particle::particle_system::ParticleSystemDef'>ParticleSystemDef</a></code></h3><div class='impl-items'><h4 id='method.fmt' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#method.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>
+</div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../../../";
+        window.currentCrate = "liquidfun";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../../../jquery.js"></script>
+    <script src="../../../../main.js"></script>
+    
+    <script async src="../../../../search-index.js"></script>
+</body>
+</html>

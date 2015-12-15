@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["B2Shape",""],["Type",""]],"trait":[["Shape",""]]});

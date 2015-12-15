@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["B2ParticleGroup",""]],"struct":[["ParticleGroup","A group of particles. b2ParticleGroup::CreateParticleGroup creates these."]]});

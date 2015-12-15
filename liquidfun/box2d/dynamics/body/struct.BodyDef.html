@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `BodyDef` struct in crate `liquidfun`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, BodyDef">
+
+    <title>liquidfun::box2d::dynamics::body::BodyDef - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../../../main.css">
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../../../index.html'>liquidfun</a>::<wbr><a href='../../index.html'>box2d</a>::<wbr><a href='../index.html'>dynamics</a>::<wbr><a href='index.html'>body</a></p><script>window.sidebarCurrent = {name: 'BodyDef', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../../../index.html'>liquidfun</a>::<wbr><a href='../../index.html'>box2d</a>::<wbr><a href='../index.html'>dynamics</a>::<wbr><a href='index.html'>body</a>::<wbr><a class='struct' href=''>BodyDef</a></span><span class='out-of-band'><span id='render-detail'>
+            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                [<span class='inner'>&#x2212;</span>]
+            </a>
+        </span><a id='src-145' class='srclink' href='../../../../src/liquidfun/box2d/dynamics/body.rs.html#25-79' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct BodyDef {
+    pub body_type: <a class='enum' href='../../../../liquidfun/box2d/dynamics/body/enum.BodyType.html' title='liquidfun::box2d::dynamics::body::BodyType'>BodyType</a>,
+    pub position: <a class='struct' href='../../../../liquidfun/box2d/common/math/struct.Vec2.html' title='liquidfun::box2d::common::math::Vec2'>Vec2</a>,
+    pub angle: <a class='type' href='../../../../liquidfun/box2d/common/settings/type.Float32.html' title='liquidfun::box2d::common::settings::Float32'>Float32</a>,
+    pub linear_velocity: <a class='struct' href='../../../../liquidfun/box2d/common/math/struct.Vec2.html' title='liquidfun::box2d::common::math::Vec2'>Vec2</a>,
+    pub angular_velocity: <a class='type' href='../../../../liquidfun/box2d/common/settings/type.Float32.html' title='liquidfun::box2d::common::settings::Float32'>Float32</a>,
+    pub linear_damping: <a class='type' href='../../../../liquidfun/box2d/common/settings/type.Float32.html' title='liquidfun::box2d::common::settings::Float32'>Float32</a>,
+    pub angular_damping: <a class='type' href='../../../../liquidfun/box2d/common/settings/type.Float32.html' title='liquidfun::box2d::common::settings::Float32'>Float32</a>,
+    pub allow_sleep: <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>,
+    pub awake: <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>,
+    pub fixed_rotation: <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>,
+    pub bullet: <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>,
+    pub active: <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>,
+    pub user_data: <a class='type' href='../../../../libc/type.size_t.html' title='libc::size_t'>size_t</a>,
+    pub gravity_scale: <a class='type' href='../../../../liquidfun/box2d/common/settings/type.Float32.html' title='liquidfun::box2d::common::settings::Float32'>Float32</a>,
+}</pre><div class='docblock'><p>A body definition holds all the data needed to construct a rigid body.
+You can safely re-use body definitions. Shapes are added to a body after construction.</p>
+</div><h2 class='fields'>Fields</h2>
+<table><tr class='stab '>
+                                  <td id='structfield.body_type'><code>body_type</code></td><td><div class='docblock'><p>The body type: static, kinematic, or dynamic.
+Note: if a dynamic body would have zero mass, the mass is set to one.</p>
+</div></td></tr><tr class='stab '>
+                                  <td id='structfield.position'><code>position</code></td><td><div class='docblock'><p>The world position of the body. Avoid creating bodies at the origin
+since this can lead to many overlapping shapes.</p>
+</div></td></tr><tr class='stab '>
+                                  <td id='structfield.angle'><code>angle</code></td><td><div class='docblock'><p>The world angle of the body in radians.</p>
+</div></td></tr><tr class='stab '>
+                                  <td id='structfield.linear_velocity'><code>linear_velocity</code></td><td><div class='docblock'><p>The linear velocity of the body&#39;s origin in world co-ordinates.</p>
+</div></td></tr><tr class='stab '>
+                                  <td id='structfield.angular_velocity'><code>angular_velocity</code></td><td><div class='docblock'><p>The angular velocity of the body.</p>
+</div></td></tr><tr class='stab '>
+                                  <td id='structfield.linear_damping'><code>linear_damping</code></td><td><div class='docblock'><p>Linear damping is use to reduce the linear velocity. The damping parameter
+can be larger than 1.0f but the damping effect becomes sensitive to the
+time step when the damping parameter is large.</p>
+</div></td></tr><tr class='stab '>
+                                  <td id='structfield.angular_damping'><code>angular_damping</code></td><td><div class='docblock'><p>Angular damping is use to reduce the angular velocity. The damping parameter
+can be larger than 1.0f but the damping effect becomes sensitive to the
+time step when the damping parameter is large.</p>
+</div></td></tr><tr class='stab '>
+                                  <td id='structfield.allow_sleep'><code>allow_sleep</code></td><td><div class='docblock'><p>Set this flag to false if this body should never fall asleep. Note that
+this increases CPU usage.</p>
+</div></td></tr><tr class='stab '>
+                                  <td id='structfield.awake'><code>awake</code></td><td><div class='docblock'><p>Is this body initially awake or sleeping?</p>
+</div></td></tr><tr class='stab '>
+                                  <td id='structfield.fixed_rotation'><code>fixed_rotation</code></td><td><div class='docblock'><p>Should this body be prevented from rotating? Useful for characters.</p>
+</div></td></tr><tr class='stab '>
+                                  <td id='structfield.bullet'><code>bullet</code></td><td><div class='docblock'><p>Is this a fast moving body that should be prevented from tunneling through
+other moving bodies? Note that all bodies are prevented from tunneling through
+kinematic and static bodies. This setting is only considered on dynamic bodies.
+@warning You should use this flag sparingly since it increases processing time.</p>
+</div></td></tr><tr class='stab '>
+                                  <td id='structfield.active'><code>active</code></td><td><div class='docblock'><p>Does this body start out active?</p>
+</div></td></tr><tr class='stab '>
+                                  <td id='structfield.user_data'><code>user_data</code></td><td><div class='docblock'><p>Use this to store application specific body data.</p>
+</div></td></tr><tr class='stab '>
+                                  <td id='structfield.gravity_scale'><code>gravity_scale</code></td><td><div class='docblock'><p>Scale the gravity applied to this body.</p>
+</div></td></tr></table><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/default/trait.Default.html' title='core::default::Default'>Default</a> for <a class='struct' href='../../../../liquidfun/box2d/dynamics/body/struct.BodyDef.html' title='liquidfun::box2d::dynamics::body::BodyDef'>BodyDef</a></code></h3><div class='impl-items'><h4 id='method.default' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/default/trait.Default.html#method.default' class='fnname'>default</a>() -&gt; <a class='struct' href='../../../../liquidfun/box2d/dynamics/body/struct.BodyDef.html' title='liquidfun::box2d::dynamics::body::BodyDef'>BodyDef</a></code></h4>
+</div><h3 id='derived_implementations'>Derived Implementations </h3><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='struct' href='../../../../liquidfun/box2d/dynamics/body/struct.BodyDef.html' title='liquidfun::box2d::dynamics::body::BodyDef'>BodyDef</a></code></h3><div class='impl-items'><h4 id='method.fmt' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#method.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>
+</div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../../../";
+        window.currentCrate = "liquidfun";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../../../jquery.js"></script>
+    <script src="../../../../main.js"></script>
+    
+    <script async src="../../../../search-index.js"></script>
+</body>
+</html>
