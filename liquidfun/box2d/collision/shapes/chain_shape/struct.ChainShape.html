@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `ChainShape` struct in crate `liquidfun`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, ChainShape">
+
+    <title>liquidfun::box2d::collision::shapes::chain_shape::ChainShape - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../../../../main.css">
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../../../../index.html'>liquidfun</a>::<wbr><a href='../../../index.html'>box2d</a>::<wbr><a href='../../index.html'>collision</a>::<wbr><a href='../index.html'>shapes</a>::<wbr><a href='index.html'>chain_shape</a></p><script>window.sidebarCurrent = {name: 'ChainShape', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../../../../index.html'>liquidfun</a>::<wbr><a href='../../../index.html'>box2d</a>::<wbr><a href='../../index.html'>collision</a>::<wbr><a href='../index.html'>shapes</a>::<wbr><a href='index.html'>chain_shape</a>::<wbr><a class='struct' href=''>ChainShape</a></span><span class='out-of-band'><span id='render-detail'>
+            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                [<span class='inner'>&#x2212;</span>]
+            </a>
+        </span><a id='src-35' class='srclink' href='../../../../../src/liquidfun/box2d/collision/shapes/chain_shape.rs.html#24-27' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct ChainShape {
+    // some fields omitted
+}</pre><div class='docblock'><p>A chain shape is a free form sequence of line segments.
+The chain has two-sided collision, so you can use inside and outside collision.
+Therefore, you may use any winding order.
+Since there may be many vertices, they are allocated using b2Alloc.
+Connectivity information is used to create smooth collisions.
+WARNING: The chain will not collide properly if there are self-intersections.</p>
+</div><h2 id='methods'>Methods</h2><h3 class='impl'><code>impl <a class='struct' href='../../../../../liquidfun/box2d/collision/shapes/chain_shape/struct.ChainShape.html' title='liquidfun::box2d::collision::shapes::chain_shape::ChainShape'>ChainShape</a></code></h3><div class='impl-items'><h4 id='method.new' class='method'><code>fn <a href='#method.new' class='fnname'>new</a>() -&gt; <a class='struct' href='../../../../../liquidfun/box2d/collision/shapes/chain_shape/struct.ChainShape.html' title='liquidfun::box2d::collision::shapes::chain_shape::ChainShape'>ChainShape</a></code></h4>
+<div class='docblock'><p>Create a new ChainShape.</p>
+</div><h4 id='method.create_chain' class='method'><code>fn <a href='#method.create_chain' class='fnname'>create_chain</a>(&amp;mut self, vertices: <a href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a class='struct' href='../../../../../liquidfun/box2d/common/math/struct.Vec2.html' title='liquidfun::box2d::common::math::Vec2'>Vec2</a><a href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>, count: <a href='https://doc.rust-lang.org/nightly/std/primitive.i32.html'>i32</a>)</code></h4>
+<div class='docblock'><p>Create a chain with isolated end vertices.
+@param vertices an array of vertices, these are copied
+@param count the vertex count</p>
+</div><h4 id='method.get_child_count' class='method'><code>fn <a href='#method.get_child_count' class='fnname'>get_child_count</a>(&amp;self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.i32.html'>i32</a></code></h4>
+<div class='docblock'><p>@see b2Shape::GetChildCount</p>
+</div><h4 id='method.get_vertex_count' class='method'><code>fn <a href='#method.get_vertex_count' class='fnname'>get_vertex_count</a>(&amp;self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.i32.html'>i32</a></code></h4>
+<div class='docblock'><p>The vertex count.</p>
+</div><h4 id='method.get_vertices' class='method'><code>fn <a href='#method.get_vertices' class='fnname'>get_vertices</a>(&amp;self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a class='struct' href='../../../../../liquidfun/box2d/common/math/struct.Vec2.html' title='liquidfun::box2d::common::math::Vec2'>Vec2</a><a href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a></code></h4>
+<div class='docblock'><p>The vertices. Owned by this class.</p>
+</div></div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><code>impl <a class='trait' href='../../../../../liquidfun/box2d/collision/shapes/shape/trait.Shape.html' title='liquidfun::box2d::collision::shapes::shape::Shape'>Shape</a> for <a class='struct' href='../../../../../liquidfun/box2d/collision/shapes/chain_shape/struct.ChainShape.html' title='liquidfun::box2d::collision::shapes::chain_shape::ChainShape'>ChainShape</a></code></h3><div class='impl-items'><h4 id='method.handle' class='method'><code>fn <a href='../../../../../liquidfun/box2d/collision/shapes/shape/trait.Shape.html#method.handle' class='fnname'>handle</a>(&amp;self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='enum' href='../../../../../liquidfun/box2d/collision/shapes/shape/enum.B2Shape.html' title='liquidfun::box2d::collision::shapes::shape::B2Shape'>B2Shape</a></a></code></h4>
+</div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Drop.html' title='core::ops::Drop'>Drop</a> for <a class='struct' href='../../../../../liquidfun/box2d/collision/shapes/chain_shape/struct.ChainShape.html' title='liquidfun::box2d::collision::shapes::chain_shape::ChainShape'>ChainShape</a></code></h3><div class='docblock'><p>The destructor frees the vertices using b2Free.</p>
+</div><div class='impl-items'><h4 id='method.drop' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Drop.html#method.drop' class='fnname'>drop</a>(&amp;mut self)</code></h4>
+</div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../../../../";
+        window.currentCrate = "liquidfun";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../../../../jquery.js"></script>
+    <script src="../../../../../main.js"></script>
+    
+    <script async src="../../../../../search-index.js"></script>
+</body>
+</html>
