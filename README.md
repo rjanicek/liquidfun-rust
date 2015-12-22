@@ -7,6 +7,14 @@ Rust bindings for [LiquidFun](https://github.com/google/liquidfun/).
 * Documentation for C++ API should be usable for Rust API.
 * Document places where Rust API varries from C++ API.
 
+[Documentation](http://rjanicek.github.io/liquidfun-rust/liquidfun/)
+
+[LiquidFun Programmer's Guide](https://google.github.io/liquidfun/Programmers-Guide.html)
+
+[LiquidFun C++ API Documentation](https://google.github.io/liquidfun/API-Ref.html)
+
+[Cargo Crate](https://crates.io/crates/liquidfun/)
+
 Usage
 -----
 First, add the following to your `Cargo.toml`:

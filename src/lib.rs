@@ -1,15 +1,8 @@
 //! Rust bindings for [LiquidFun](https://github.com/google/liquidfun/).
 //!
-//! References
-//! ----------
-//! [LiquidFun Programmer's Guide](https://google.github.io/liquidfun/Programmers-Guide.html)
-//! 
-//! [LiquidFun C++ API Documentation](https://google.github.io/liquidfun/API-Ref.html)
+//! [Repository](https://github.com/rjanicek/liquidfun-rust)
 //!
-//! Notes
-//! -----
-//!
-//! Anything with a `B2` prefix indicates ffi compatibility with the C++ API.
+//! Anything with a `B2` prefix indicates ffi boundry with the C++ API.
 //!
 //! User Data
 //! ---------
@@ -58,7 +51,6 @@
 //! ```
 
 extern crate libc;
-
 #[macro_use]
 extern crate bitflags;
 
