@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["body",""],["fixture",""],["world",""]]});
+initSidebarItems({"mod":[["body",""],["fixture",""],["joints",""],["world",""]]});

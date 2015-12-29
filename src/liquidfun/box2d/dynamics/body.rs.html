@@ -249,6 +249,13 @@
 <span id="207">207</span>
 <span id="208">208</span>
 <span id="209">209</span>
+<span id="210">210</span>
+<span id="211">211</span>
+<span id="212">212</span>
+<span id="213">213</span>
+<span id="214">214</span>
+<span id="215">215</span>
+<span id="216">216</span>
 </pre><pre class='rust '>
 <span class='kw'>use</span> <span class='ident'>libc</span>::<span class='ident'>size_t</span>;
 <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>mem</span>::<span class='ident'>transmute</span>;
@@ -361,12 +368,13 @@
     <span class='kw'>fn</span> <span class='ident'>b2Body_GetNext</span>(<span class='ident'>this</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>B2Body</span>) <span class='op'>-&gt;</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>B2Body</span>;
     <span class='kw'>fn</span> <span class='ident'>b2Body_GetPosition</span>(<span class='ident'>this</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>B2Body</span>) <span class='op'>-&gt;</span> <span class='kw-2'>&amp;</span><span class='ident'>Vec2</span>;
     <span class='kw'>fn</span> <span class='ident'>b2Body_GetUserData</span>(<span class='ident'>this</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>B2Body</span>) <span class='op'>-&gt;</span> <span class='ident'>usize</span>;
-    <span class='kw'>fn</span> <span class='ident'>b2Body_GetWorld</span>(<span class='ident'>this</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>B2Body</span>) <span class='op'>-&gt;</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>B2World</span>; 
+    <span class='kw'>fn</span> <span class='ident'>b2Body_GetWorld</span>(<span class='ident'>this</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>B2Body</span>) <span class='op'>-&gt;</span> <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>B2World</span>;
+    <span class='kw'>fn</span> <span class='ident'>b2Body_GetLocalPoint</span>(<span class='ident'>this</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>B2Body</span>, <span class='ident'>worldPoint</span>: <span class='kw-2'>&amp;</span><span class='ident'>Vec2</span>) <span class='op'>-&gt;</span> <span class='ident'>Vec2</span>;
 }
 
 <span class='doccomment'>/// A rigid body. These are created via b2World::CreateBody.</span>
 <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>raw_pointer_derive</span>)]</span>
-<span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>)]</span>
+<span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Clone</span>, <span class='ident'>Debug</span>)]</span>
 <span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>Body</span> {
 	<span class='kw'>pub</span> <span class='ident'>ptr</span>: <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>B2Body</span>
 }
@@ -455,6 +463,12 @@
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>get_world</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>World</span> {
         <span class='kw'>unsafe</span> {
             <span class='ident'>World</span> { <span class='ident'>ptr</span>: <span class='ident'>b2Body_GetWorld</span>(<span class='self'>self</span>.<span class='ident'>ptr</span>) }
+        }
+    }
+
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>get_local_point</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>, <span class='ident'>world_point</span>: <span class='kw-2'>&amp;</span><span class='ident'>Vec2</span>) <span class='op'>-&gt;</span> <span class='ident'>Vec2</span> {
+        <span class='kw'>unsafe</span> {
+            <span class='ident'>b2Body_GetLocalPoint</span>(<span class='self'>self</span>.<span class='ident'>ptr</span>, <span class='ident'>world_point</span>)
         }
     }
 

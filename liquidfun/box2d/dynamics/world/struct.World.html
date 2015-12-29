@@ -45,7 +45,7 @@
             <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                 [<span class='inner'>&#x2212;</span>]
             </a>
-        </span><a id='src-357' class='srclink' href='../../../../src/liquidfun/box2d/dynamics/world.rs.html#23-25' title='goto source code'>[src]</a></span></h1>
+        </span><a id='src-500' class='srclink' href='../../../../src/liquidfun/box2d/dynamics/world.rs.html#48-50' title='goto source code'>[src]</a></span></h1>
 <pre class='rust struct'>pub struct World {
     pub ptr: <a href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='enum' href='../../../../liquidfun/box2d/dynamics/world/enum.B2World.html' title='liquidfun::box2d::dynamics::world::B2World'>B2World</a></a>,
 }</pre><div class='docblock'><p>The world class manages all physics entities, dynamic simulation,
@@ -60,12 +60,18 @@ management facilities.</p>
 <div class='docblock'><p>Create a rigid body given a definition. No reference to the definition
 is retained.
 @warning This function is locked during callbacks.</p>
+</div><h4 id='method.create_revolute_joint' class='method'><code>fn <a href='#method.create_revolute_joint' class='fnname'>create_revolute_joint</a>(&amp;mut self, def: &amp;<a href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>(<a class='struct' href='../../../../liquidfun/box2d/dynamics/joints/struct.JointDef.html' title='liquidfun::box2d::dynamics::joints::JointDef'>JointDef</a>, <a class='struct' href='../../../../liquidfun/box2d/dynamics/joints/revolute_joint/struct.RevoluteJointDef.html' title='liquidfun::box2d::dynamics::joints::revolute_joint::RevoluteJointDef'>RevoluteJointDef</a>)</a>) -&gt; <a class='struct' href='../../../../liquidfun/box2d/dynamics/joints/revolute_joint/struct.RevoluteJoint.html' title='liquidfun::box2d::dynamics::joints::revolute_joint::RevoluteJoint'>RevoluteJoint</a></code></h4>
+<div class='docblock'><p>Create a revolute joint to constrain bodies together. No reference to the definition
+is retained. This may cause the connected bodies to cease colliding.
+@warning This function is locked during callbacks.</p>
 </div><h4 id='method.create_particle_system' class='method'><code>fn <a href='#method.create_particle_system' class='fnname'>create_particle_system</a>(&amp;self, def: &amp;<a class='struct' href='../../../../liquidfun/box2d/particle/particle_system/struct.ParticleSystemDef.html' title='liquidfun::box2d::particle::particle_system::ParticleSystemDef'>ParticleSystemDef</a>) -&gt; <a class='struct' href='../../../../liquidfun/box2d/particle/particle_system/struct.ParticleSystem.html' title='liquidfun::box2d::particle::particle_system::ParticleSystem'>ParticleSystem</a></code></h4>
 <div class='docblock'><p>Create a particle system given a definition. No reference to the
 definition is retained.
 @warning This function is locked during callbacks.</p>
 </div><h4 id='method.get_body_count' class='method'><code>fn <a href='#method.get_body_count' class='fnname'>get_body_count</a>(&amp;self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.i32.html'>i32</a></code></h4>
 <div class='docblock'><p>Get the number of bodies.</p>
+</div><h4 id='method.get_joint_count' class='method'><code>fn <a href='#method.get_joint_count' class='fnname'>get_joint_count</a>(&amp;self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.i32.html'>i32</a></code></h4>
+<div class='docblock'><p>Get the number of joints.</p>
 </div><h4 id='method.get_body_list' class='method'><code>fn <a href='#method.get_body_list' class='fnname'>get_body_list</a>(&amp;self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../../../liquidfun/box2d/dynamics/body/struct.Body.html' title='liquidfun::box2d::dynamics::body::Body'>Body</a>&gt;</code></h4>
 <div class='docblock'><p>Get the world body list. With the returned body, use b2Body::GetNext to get
 the next body in the world list. A NULL body indicates the end of the list.

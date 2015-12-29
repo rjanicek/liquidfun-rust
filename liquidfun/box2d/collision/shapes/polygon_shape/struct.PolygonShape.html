@@ -45,7 +45,7 @@
             <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                 [<span class='inner'>&#x2212;</span>]
             </a>
-        </span><a id='src-79' class='srclink' href='../../../../../src/liquidfun/box2d/collision/shapes/polygon_shape.rs.html#20-23' title='goto source code'>[src]</a></span></h1>
+        </span><a id='src-85' class='srclink' href='../../../../../src/liquidfun/box2d/collision/shapes/polygon_shape.rs.html#21-24' title='goto source code'>[src]</a></span></h1>
 <pre class='rust struct'>pub struct PolygonShape {
     // some fields omitted
 }</pre><div class='docblock'><p>A convex polygon. It is assumed that the interior of the polygon is to
@@ -62,6 +62,12 @@ In most cases you should not need many vertices for a convex polygon.</p>
 <div class='docblock'><p>Build vertices to represent an axis-aligned box centered on the local origin.
 @param hx the half-width.
 @param hy the half-height.</p>
+</div><h4 id='method.set_as_box_oriented' class='method'><code>fn <a href='#method.set_as_box_oriented' class='fnname'>set_as_box_oriented</a>(&amp;mut self, hx: <a href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>, hy: <a href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>, center: &amp;<a class='struct' href='../../../../../liquidfun/box2d/common/math/struct.Vec2.html' title='liquidfun::box2d::common::math::Vec2'>Vec2</a>, angle: <a href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>)</code></h4>
+<div class='docblock'><p>Build vertices to represent an oriented box.
+@param hx the half-width.
+@param hy the half-height.
+@param center the center of the box in local coordinates.
+@param angle the rotation of the box in local coordinates.</p>
 </div></div><h3 class='impl'><code>impl <a class='struct' href='../../../../../liquidfun/box2d/collision/shapes/polygon_shape/struct.PolygonShape.html' title='liquidfun::box2d::collision::shapes::polygon_shape::PolygonShape'>PolygonShape</a></code></h3><div class='impl-items'><h4 id='method.get_vertex_iterator' class='method'><code>fn <a href='#method.get_vertex_iterator' class='fnname'>get_vertex_iterator</a>(&amp;mut self) -&gt; <a class='struct' href='../../../../../liquidfun/ext/collision/shapes/polygon_shape/struct.VertexIterator.html' title='liquidfun::ext::collision::shapes::polygon_shape::VertexIterator'>VertexIterator</a></code></h4>
 <div class='docblock'><p>Get a vertex iterator.</p>
 </div></div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><code>impl <a class='trait' href='../../../../../liquidfun/box2d/collision/shapes/shape/trait.Shape.html' title='liquidfun::box2d::collision::shapes::shape::Shape'>Shape</a> for <a class='struct' href='../../../../../liquidfun/box2d/collision/shapes/polygon_shape/struct.PolygonShape.html' title='liquidfun::box2d::collision::shapes::polygon_shape::PolygonShape'>PolygonShape</a></code></h3><div class='impl-items'><h4 id='method.handle' class='method'><code>fn <a href='../../../../../liquidfun/box2d/collision/shapes/shape/trait.Shape.html#method.handle' class='fnname'>handle</a>(&amp;self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut <a class='enum' href='../../../../../liquidfun/box2d/collision/shapes/shape/enum.B2Shape.html' title='liquidfun::box2d::collision::shapes::shape::B2Shape'>B2Shape</a></a></code></h4>
