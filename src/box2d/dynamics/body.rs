@@ -109,12 +109,13 @@ extern {
     fn b2Body_GetNext(this: *mut B2Body) -> *mut B2Body;
     fn b2Body_GetPosition(this: *mut B2Body) -> &Vec2;
     fn b2Body_GetUserData(this: *const B2Body) -> usize;
-    fn b2Body_GetWorld(this: *const B2Body) -> *mut B2World; 
+    fn b2Body_GetWorld(this: *const B2Body) -> *mut B2World;
+    fn b2Body_GetLocalPoint(this: *const B2Body, worldPoint: &Vec2) -> Vec2;
 }
 
 /// A rigid body. These are created via b2World::CreateBody.
 #[allow(raw_pointer_derive)]
-#[derive(Clone)]
+#[derive(Clone, Debug)]
 pub struct Body {
 	pub ptr: *mut B2Body
 }
@@ -203,6 +204,12 @@ impl Body {
     pub fn get_world(&self) -> World {
         unsafe {
             World { ptr: b2Body_GetWorld(self.ptr) }
+        }
+    }
+
+    pub fn get_local_point(&self, world_point: &Vec2) -> Vec2 {
+        unsafe {
+            b2Body_GetLocalPoint(self.ptr, world_point)
         }
     }
 

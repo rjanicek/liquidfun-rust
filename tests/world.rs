@@ -74,7 +74,7 @@ fn get_body_iterator() {
 #[test]
 fn get_particle_system_list() {
 
-	let mut world = World::default();
+	let world = World::default();
 	let particle_system_def = ParticleSystemDef::default();
 	world.create_particle_system(&particle_system_def);
 

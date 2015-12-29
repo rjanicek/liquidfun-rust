@@ -10,6 +10,7 @@ extern "C" {
 	const b2Vec2& b2PolygonShape_GetVertex(b2PolygonShape* self, int32 index);
 	int32 b2PolygonShape_GetVertexCount(const b2PolygonShape* self);
 	void b2PolygonShape_SetAsBox(b2PolygonShape* self, float32 hx, float32 hy);
+	void b2PolygonShape_SetAsBox_Oriented(b2PolygonShape* self, float32 hx, float32 hy, const b2Vec2& center, float32 angle);
 	b2Shape* b2PolygonShape_Upcast(b2PolygonShape* self);
 
 

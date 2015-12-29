@@ -13,11 +13,11 @@ fn create_a_zero_particle_color() {
 
 #[test]
 fn create_and_destroy_a_particle() {
-	let mut world = world::World::default();
+	let world = world::World::default();
 	let particle_system_def = ParticleSystemDef::default();
 	let particle_system = world.create_particle_system(&particle_system_def);
 
-	let mut pd = ParticleDef::default();
+	let pd = ParticleDef::default();
 	assert_eq!(particle_system.get_particle_count(), 0);
 	let temp_index = particle_system.create_particle(&pd);
 	assert_eq!(particle_system.get_particle_count(), 1);
@@ -26,7 +26,7 @@ fn create_and_destroy_a_particle() {
 
 #[test]
 fn set_and_get_particle_flags() {
-   let mut world = world::World::default();
+   let world = world::World::default();
    let particle_system_def = ParticleSystemDef::default();
    let particle_system = world.create_particle_system(&particle_system_def);
 
@@ -40,7 +40,7 @@ fn set_and_get_particle_flags() {
 
 #[test]
 fn get_position_buffer() {
-	let mut world = world::World::default();
+	let world = world::World::default();
 	let particle_system_def = ParticleSystemDef::default();
 	let particle_system = world.create_particle_system(&particle_system_def);
 

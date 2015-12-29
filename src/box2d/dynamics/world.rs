@@ -1,7 +1,10 @@
+use libc::size_t;
+use std::ptr;
 use super::body::*;
 use super::super::common::math::*;
 use super::super::common::settings::*;
 use super::super::particle::particle_system::*;
+use super::joints;
 
 pub enum B2World {}
 
@@ -10,11 +13,33 @@ extern {
     fn b2World_CreateParticleSystem(world: *mut B2World, def: *const ParticleSystemDef) -> *mut B2ParticleSystem;
     fn b2World_Delete(world: *mut B2World);
     fn b2World_GetBodyCount(world: *const B2World) -> Int32;
+    fn b2World_GetJointCount(world: *const B2World) -> Int32;
     fn b2World_GetBodyList(world: *const B2World) -> *mut B2Body;
     fn b2World_GetGravity(world: *mut B2World) -> Vec2;
     fn b2World_GetParticleSystemList(world: *const B2World) -> *mut B2ParticleSystem;
     fn b2World_New(gravity: *const Vec2) -> *mut B2World;
     fn b2World_Step(this: *mut B2World, timeStep: Float32, velocityIterations: Int32, positionIterations: Int32);
+
+    fn b2World_CreateRevoluteJoint(
+        world: *mut B2World,
+        
+        joint_type: joints::JointType,
+        user_data: size_t,
+        body_a: *mut B2Body,
+        body_b: *mut B2Body,
+        collide_connected: bool,
+
+        local_anchor_a: Vec2,
+        local_anchor_b: Vec2,
+        reference_angle: Float32,
+        enable_limit: bool,
+        lower_angle: Float32,
+        upper_angle: Float32,
+        enable_motor: bool,
+        motor_speed: Float32,
+        max_motor_torque: Float32
+    ) -> *mut joints::revolute_joint::B2RevoluteJoint;
+
 }
 
 /// The world class manages all physics entities, dynamic simulation,
@@ -43,6 +68,37 @@ impl World {
         }
     }
 
+    /// Create a revolute joint to constrain bodies together. No reference to the definition
+    /// is retained. This may cause the connected bodies to cease colliding.
+    /// @warning This function is locked during callbacks.
+    pub fn create_revolute_joint(&mut self, def: &(joints::JointDef, joints::revolute_joint::RevoluteJointDef)) -> joints::revolute_joint::RevoluteJoint {
+        unsafe {
+            joints::revolute_joint::RevoluteJoint {ptr: b2World_CreateRevoluteJoint(
+                self.ptr,
+                def.0.joint_type,
+                def.0.user_data,
+                match def.0.body_a {
+                    Some(ref b) =>b.ptr,
+                    None => ptr::null_mut()
+                },
+                match def.0.body_b {
+                    Some(ref b) =>b.ptr,
+                    None => ptr::null_mut()
+                },
+                def.0.collide_connected,
+                def.1.local_anchor_a,
+                def.1.local_anchor_b,
+                def.1.reference_angle,
+                def.1.enable_limit,
+                def.1.lower_angle,
+                def.1.upper_angle,
+                def.1.enable_motor,
+                def.1.motor_speed,
+                def.1.max_motor_torque
+            )}
+        }
+    }
+
     /// Create a particle system given a definition. No reference to the
     /// definition is retained.
     /// @warning This function is locked during callbacks.
@@ -56,6 +112,13 @@ impl World {
     pub fn get_body_count(&self) -> i32 {
         unsafe {
             b2World_GetBodyCount(self.ptr)
+        }
+    }
+
+    /// Get the number of joints.
+    pub fn get_joint_count(&self) -> i32 {
+        unsafe {
+            b2World_GetJointCount(self.ptr)
         }
     }
 

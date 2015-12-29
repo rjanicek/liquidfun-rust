@@ -10,6 +10,7 @@ extern {
     fn b2PolygonShape_GetVertexCount(ptr: *const B2PolygonShape) -> Int32;
     fn b2PolygonShape_New() -> *mut B2PolygonShape;
     fn b2PolygonShape_SetAsBox(ptr: *mut B2PolygonShape, hx: Float32, hy: Float32);
+    fn b2PolygonShape_SetAsBox_Oriented(ptr: *mut B2PolygonShape, hx: Float32, hy: Float32, center: &Vec2, angle: Float32);
     fn b2PolygonShape_Upcast(ptr: *mut B2PolygonShape) -> *mut B2Shape;
 }
 
@@ -65,6 +66,17 @@ impl PolygonShape {
     pub fn set_as_box(&mut self, hx:f32, hy:f32) {
         unsafe {
             b2PolygonShape_SetAsBox(self.ptr, hx, hy);
+        }
+    }
+
+    /// Build vertices to represent an oriented box.
+    /// @param hx the half-width.
+    /// @param hy the half-height.
+    /// @param center the center of the box in local coordinates.
+    /// @param angle the rotation of the box in local coordinates.
+    pub fn set_as_box_oriented(&mut self, hx: f32, hy: f32, center: &Vec2, angle: f32) {
+        unsafe {
+            b2PolygonShape_SetAsBox_Oriented(self.ptr, hx, hy, center, angle);
         }
     }
 }

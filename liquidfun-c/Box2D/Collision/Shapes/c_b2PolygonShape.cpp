@@ -22,6 +22,10 @@ extern "C" {
         self->SetAsBox(hx, hy);
     }
 
+    void b2PolygonShape_SetAsBox_Oriented(b2PolygonShape* self, float32 hx, float32 hy, const b2Vec2& center, float32 angle) {
+        self->SetAsBox(hx, hy, center, angle);
+    }
+
     b2Shape* b2PolygonShape_Upcast(b2PolygonShape* self) {
         return static_cast<b2Shape*>(reinterpret_cast<b2PolygonShape*>(self));
     }

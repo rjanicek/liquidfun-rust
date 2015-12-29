@@ -35,5 +35,9 @@ extern "C" {
 		return self->GetWorld();
 	}
 
+	b2Vec2 b2Body_GetLocalPoint(const b2Body* self, const b2Vec2& worldPoint) {
+		return self->GetLocalPoint(worldPoint);
+	}
+
 } // extern C
 
